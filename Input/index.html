@@ -1,0 +1,865 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../HowTo/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Input Format - ADS Root Cause Analysis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#input-format" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ADS Root Cause Analysis" class="md-header__button md-logo" aria-label="ADS Root Cause Analysis" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ADS Root Cause Analysis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Input Format
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  ADS Root Cause Analysis
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../HowTo/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  How to Run
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Input Format
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ADS Root Cause Analysis" class="md-nav__button md-logo" aria-label="ADS Root Cause Analysis" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ADS Root Cause Analysis
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADS Root Cause Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HowTo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Input Format
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Input Format
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Logs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounding-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bounding Box
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groundtruth-bouding-box-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groundtruth Bouding Box data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prediction-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prediction Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjust-prediction-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjust Prediction data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waypoint-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waypoint Data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Logs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bounding-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bounding Box
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groundtruth-bouding-box-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groundtruth Bouding Box data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prediction-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prediction Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjust-prediction-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjust Prediction data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waypoint-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waypoint Data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="input-format">Input Format</h1>
+<h2 id="metadata">Metadata</h2>
+<p>The metadata is the basic information of the running logs as </p>
+<pre><code>{
+    "timesteps_per_frame": 50,
+    "ego_config":{
+        "camera":{
+            "camera_loc" : [1.3, 0.0, 1.8]
+        }
+    },
+    "collision_frame": 114,
+    "total_frames": 114
+}
+</code></pre>
+<ul>
+<li><strong><code>timesteps_per_frame</code></strong>: Number of millisecond per frame (e.g. 50 millisecond/frame)</li>
+<li><strong><code>ego_config</code></strong><ul>
+<li><strong><code>camera</code></strong><ul>
+<li><strong><code>camera_loc</code></strong>: Camera position coordinates [x,y,z] in meters (e.g. [1.3, 0.0, 1.8])</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><code>timesteps_per_frame</code></strong>: Frame number where collision occurs</li>
+<li><strong><code>total_frames</code></strong>: Total number of frames in simulation</li>
+</ul>
+<h2 id="running-logs">Running Logs</h2>
+<p>ADS Root Cause Analysis is to analyze the running logs of ADS, thus the following logs are needed.
+Each piece of data is in JSON format and should be placed in the corresponding folder. The file name should follow the pattern <code>xxx-ttt.json</code>, where <code>xxx</code> is the data name and <code>ttt</code> is the timestamp in milliseconds.</p>
+<h3 id="pose">Pose</h3>
+<p>The Pose data records the ego car's operating state at each moment, collected from either the simulator or the real world.</p>
+<p>The Pose data saved in <code>${input_data}/pose/pose-ttt.json</code>.
+A typical pose data should like</p>
+<pre><code>{
+    "x": "-111.38536071777345",
+    "y": "2.82016420293382",
+    "z": "0.03314319625496864",
+    "pitch": "0",
+    "yaw": "-0.1394016564817946",
+    "roll": "0",
+    "timestamp": "50",
+    "speed": "1.959183287133675"
+}
+</code></pre>
+<ul>
+<li><strong><code>x</code></strong>: The X-coordinate position in 3D space (in meters).</li>
+<li><strong><code>y</code></strong>: The Y-coordinate position in 3D space (in meters).</li>
+<li><strong><code>z</code></strong>: The Z-coordinate position in 3D space (in meters).</li>
+<li><strong><code>pitch</code></strong>: The pitch angle representing the rotation around the lateral axis (up/down tilt),in degrees.</li>
+<li><strong><code>yaw</code></strong>: The yaw angle representing the rotation around the vertical axis (left/right turn), in degrees.</li>
+<li><strong><code>roll</code></strong>: The roll angle representing the rotation around the longitudinal axis (tilting side to side), in degrees.</li>
+<li><strong><code>timestamp</code></strong>: The time at which the data was recorded, given in milliseconds.</li>
+<li><strong><code>speed</code></strong>: The instantaneous speed of the object at this timestamp, in meters per second.</li>
+</ul>
+<h3 id="actors">Actors</h3>
+<p>The Actors data records all vehicles and pedstrains in the environment, collected from either the simulator or the real world.</p>
+<p>The Actors data saved in <code>${input_data}/actors/actors-ttt.json</code>.
+A typical actor data should like</p>
+<pre><code>{
+    "746": {
+        "extent": {
+            "x": 2.4508416652679443,
+            "y": 1.0641621351242065,
+            "z": 0.7553732395172119
+        },
+        "location": {
+            "x": -111.38536071777344,
+            "y": 2.820164203643799,
+            "z": 0.03314319625496864
+        },
+        "rotation": {
+            "pitch": 0.0021241887006908655,
+            "roll": -0.003143310546875,
+            "yaw": -0.139404296875
+        }
+    },
+    ...
+}
+</code></pre>
+<ul>
+<li><strong><code>keyValue</code></strong>: The actor's id.</li>
+<li><strong><code>extent</code></strong>:<ul>
+<li><strong><code>x</code></strong>: The <em>half</em> X-coordinate extent of actor (in meters).</li>
+<li><strong><code>y</code></strong>: The <em>half</em> Y-coordinate extent of actor (in meters).</li>
+<li><strong><code>z</code></strong>: The <em>half</em> Z-coordinate pextent of actor (in meters).</li>
+</ul>
+</li>
+<li><strong><code>location</code></strong><ul>
+<li><strong><code>x</code></strong>: The X-coordinate position in 3D space (in meters).</li>
+<li><strong><code>y</code></strong>: The Y-coordinate position in 3D space (in meters).</li>
+<li><strong><code>z</code></strong>: The Z-coordinate position in 3D space (in meters).</li>
+</ul>
+</li>
+<li><strong><code>rotation</code></strong><ul>
+<li><strong><code>pitch</code></strong>: The pitch angle representing the rotation around the lateral axis (up/down tilt),in degrees.</li>
+<li><strong><code>yaw</code></strong>: The yaw angle representing the rotation around the vertical axis (left/right turn), in degrees.</li>
+<li><strong><code>roll</code></strong>: The roll angle representing the rotation around the longitudinal axis (tilting side to side), in degrees.</li>
+</ul>
+</li>
+</ul>
+<p>Note that, the ego car's data should also be included in <a href="./#pose-data">pose data</a>.</p>
+<h3 id="bounding-box">Bounding Box</h3>
+<p>Bounding Box data is the output of perception module (in other word, detection module).</p>
+<p>The Bounding Box data saved in <code>${input_data}/bboxes/bboxes-ttt.json</code>.
+A typical bounding box data contains</p>
+<pre><code>[
+    {
+        "id": 0,
+        "bounding_box": [
+            [
+                1111,
+                550
+            ],
+            [
+                1450,
+                733
+            ]
+        ]
+    },
+    ...
+]
+</code></pre>
+<ul>
+<li><strong><code>id</code></strong>: The detect id of NPC</li>
+<li><strong><code>bounding_box</code></strong>: The coordinates of the diagonal points of the bounding box</li>
+</ul>
+<p>The <strong><code>id</code></strong> is generated by perception module, it <strong>can</strong> be different with the <a href="./#actors">Actors data</a>.</p>
+<h3 id="groundtruth-bouding-box-data">Groundtruth Bouding Box data</h3>
+<p>The Groundtruth Bounding Box data is generated by the afflation of NPC location and camera settings.</p>
+<p>The Groundtruth Bounding Box data saved in <code>${input_data}/bboxes_gt/bboxes_gt-ttt.json</code>.
+It has the same format with the <a href="./#bounding-box">bounding box data</a>.</p>
+<p>Note that, the <strong><code>id</code></strong> <strong>should</strong> same as the <a href="./#actors">Actors data</a>.</p>
+<h3 id="prediction-data">Prediction Data</h3>
+<p>The Prediction data is the output of the prediction module.</p>
+<p>The Prediction Data saved in <code>${input_data}/predictions/predictions-ttt.json</code>.
+A typical prediction data like</p>
+<pre><code>{
+    "1": {
+        "0": {
+            "x": 6.07421875,
+            "y": -0.012420654296875,
+            "z": 0.0
+        },
+        "1": {
+            "x": 6.07421875,
+            "y": -0.012420654296875,
+            "z": 0.0
+        },
+        "2": {
+            "x": 6.07421875,
+            "y": -0.012420654296875,
+            "z": 0.0
+        },
+        "3": {
+            "x": 6.07421875,
+            "y": -0.012420654296875,
+            "z": 0.0
+        },
+        ...
+    },
+    ...
+}
+</code></pre>
+<ul>
+<li><strong><code>first-level key</code></strong>: The id that prediction module used, commonly generated by the tracking module.<ul>
+<li><strong><code>second-level key</code></strong>: The future frame that the prediction module predict.<ul>
+<li><strong><code>x</code></strong>: The <em>relative</em> X-coordinate position in 3D space (in meters).</li>
+<li><strong><code>y</code></strong>: The <em>relative</em> Y-coordinate position in 3D space (in meters).</li>
+<li><strong><code>z</code></strong>: The <em>relative</em> Z-coordinate position in 3D space (in meters).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The <strong><code>id</code></strong> <strong>can</strong> be different with the <a href="./#actors">Actors data</a>.</p>
+<h3 id="adjust-prediction-data">Adjust Prediction data</h3>
+<p>To avoid the influence of the perception module, we adjust Prediction data with perception output.</p>
+<p>The Adjust Prediction Data saved in <code>${input_data}/predictions_with_perception/predictions-ttt.json</code>.
+The format should be same as the <a href="./#prediction-data">Prediction Data</a></p>
+<p>Detail method can refer to the <a href="https://dl.acm.org/doi/10.1145/3728876">paper</a>.</p>
+<h3 id="waypoint-data">Waypoint Data</h3>
+<p>The Waypoint Data is the output of the planning module.</p>
+<p>The Waypoint Data saved in <code>${input_data}/waypoint/waypoints-ttt.json</code>.
+A typical Waypoint Data like</p>
+<pre><code>{
+    "0": {
+        "x": -111.38533020019531,
+        "y": 2.820444345474243,
+        "speed": 0
+    },
+    "1": {
+        "x": -111.38533020019531,
+        "y": 2.820444345474243,
+        "speed": 10
+    },
+    "2": {
+        "x": -110.38533020019531,
+        "y": 2.8180103302001953,
+        "speed": 15
+    },
+    "3": {
+        "x": -109.38533020019531,
+        "y": 2.8155760765075684,
+        "speed": 20
+    },
+    ...
+}
+</code></pre>
+<ul>
+<li><strong><code>first-level key</code></strong>: The future frame that the planning module plan to arrive.<ul>
+<li><strong><code>x</code></strong>: The planning X-coordinate position in 3D space (in meters).</li>
+<li><strong><code>y</code></strong>: The planning Y-coordinate position in 3D space (in meters).</li>
+<li><strong><code>speed</code></strong>: The planning speed, in meters per second.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "navigation.expand", "navigation.tracking"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
