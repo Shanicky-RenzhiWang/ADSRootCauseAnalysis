@@ -1,9 +1,9 @@
 import pathlib
 import json
-from ADSRootCauseAnaylsis.utils.common import load_json
+from ADSRootCauseAnalysis.utils.common import load_json
 import glob
 from enum import IntFlag
-from ADSRootCauseAnaylsis.moduleOracle import PerceptionOracle, PredictionOracle, PlanningOracle, ControllerOracle
+from ADSRootCauseAnalysis.moduleOracle import PerceptionOracle, PredictionOracle, PlanningOracle, ControllerOracle
 from collections import OrderedDict, defaultdict
 
 

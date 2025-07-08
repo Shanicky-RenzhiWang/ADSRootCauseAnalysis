@@ -1,9 +1,9 @@
 import hydra
 from omegaconf import DictConfig, OmegaConf
 import os
-from ADSRootCauseAnaylsis.RCHandler import RCHandler
+from ADSRootCauseAnalysis.RCHandler import RCHandler
 
-@hydra.main(version_base=None, config_path=os.path.join('ADSRootCauseAnaylsis','config'), config_name="RCanaylsis")
+@hydra.main(version_base=None, config_path=os.path.join('ADSRootCauseAnalysis','config'), config_name="RCanaylsis")
 def main(cfg: DictConfig):
     handler = RCHandler(cfg)
     stats = handler.collect_root_cause()
