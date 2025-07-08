@@ -540,6 +540,7 @@
 <h3 id="example-configuration-configrcanaylsisyaml">🔧 Example Configuration (<code>config/RCanaylsis.yaml</code>)</h3>
 <pre><code>log_dir: /path/to/logs
 effect_time_window: 10
+display_results: true
 module_setting:
 perception:
     perc_score_threshold: 0.5
@@ -554,8 +555,9 @@ planning:
 <h3 id="explanation-of-configuration-fields">📝 Explanation of Configuration Fields</h3>
 <ul>
 <li><strong><code>log_dir</code></strong>: Path to the input log directory.</li>
+<li><strong><code>effect_time_window</code></strong>: Time window (in frames) to consider for root cause analysis.</li>
 <li>
-<p><strong><code>effect_time_window</code></strong>: Time window (in frames) to consider for root cause analysis.</p>
+<p><strong><code>display_results</code></strong>: Whether display results on screen.</p>
 </li>
 <li>
 <p><strong><code>module_setting</code></strong>:</p>
@@ -594,7 +596,9 @@ from hydra import initialize, compose
 
 with initialize(config_path="ADSRootCauseAnaylsis/config"):
     cfg = compose(config_name="RCanaylsis")
-    RCHandler(cfg)
+    handler = RCHandler(cfg)
+
+... follow code
 </code></pre>
 
 
