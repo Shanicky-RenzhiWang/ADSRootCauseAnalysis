@@ -1,3 +1,3 @@
-gdown --fuzzy 'https://drive.google.com/file/d/1ZT8g2dm5eiLN5VpaPUbYyaecbhv_Ghno/view?usp=sharing'
+gdown --fuzzy 'https://drive.google.com/file/d/1VIJiSdpIigHfFMI98DRnjID8lKr6V5B0/view?usp=sharing'
 unzip examples.zip
 rm examples.zip

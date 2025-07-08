@@ -98,7 +98,7 @@ class RCHandler:
                 if md_failure:
                     if self.meta_data['collision_frame'] == -1:
                         stats[oracle_md]['safe'] += 1
-                    elif ts < self.meta_data['collision_frame'] - self.cfg.effect_time_window:
+                    elif ts > (self.meta_data['collision_frame'] - self.cfg.effect_time_window)*self.meta_data['timesteps_per_frame']:
                         stats[oracle_md]['collision'] += 1
                     else:
                         stats[oracle_md]['safe'] += 1
