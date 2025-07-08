@@ -54,7 +54,7 @@ You can create a new configuration file with same format, and running with
 The input data of ADS Root Cause Anaylsis is the running log of ADS, the details can be found in [Input Format](Input.md).
 
 
-## Standalone Running
+## Integration Supports
 
 This project can be run as a standalone application or imported as a Python package for integration into other projects.
 
