@@ -10,6 +10,7 @@ The base configuration defines the parameters required during the analysis proce
 
     log_dir: /path/to/logs
     effect_time_window: 10
+    display_results: true
     module_setting:
     perception:
         perc_score_threshold: 0.5
@@ -27,6 +28,7 @@ Explanation of Configuration Fields
 
 - **`log_dir`**: Path to the input log directory.
 - **`effect_time_window`**: Time window (in frames) to consider for root cause analysis.
+- **`display_results`**: Whether display results on screen.
 
 - **`module_setting`**:
     - **`perception.perc_score_threshold`**: Minimum confidence score for the perception module to consider a result valid.
@@ -66,4 +68,6 @@ In summary, `RCHandler` wraps all core functionalities and enables standalone ex
 
     with initialize(config_path="ADSRootCauseAnaylsis/config"):
         cfg = compose(config_name="RCanaylsis")
-        RCHandler(cfg)
+        handler = RCHandler(cfg)
+
+    ... follow code

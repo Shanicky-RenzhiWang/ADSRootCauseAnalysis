@@ -5,6 +5,10 @@ import glob
 from enum import IntFlag
 from ADSRootCauseAnalysis.moduleOracle import PerceptionOracle, PredictionOracle, PlanningOracle, ControllerOracle
 from collections import OrderedDict, defaultdict
+import warnings
+import numpy as np
+
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
 class RCHandler:
@@ -98,7 +102,19 @@ class RCHandler:
                         stats[oracle_md]['collision'] += 1
                     else:
                         stats[oracle_md]['safe'] += 1
+        if self.cfg.display_results:
+            self.display_results(stats)
         return stats
+
+    def display_results(self, stats):
+        root = []
+        for oracle_md, oracle_stats in stats.items():
+            print(f"{oracle_md} error - Cause Collisions: {oracle_stats['collision']}, Safe: {oracle_stats['safe']}")
+            if oracle_stats['collision']:
+                root.append(oracle_md)
+        if root:
+            print(f"Root cause(s) of collision: {', '.join(root)}")
+        print("Analysis complete.")
                         
 
 

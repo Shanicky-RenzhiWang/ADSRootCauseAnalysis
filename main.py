@@ -7,7 +7,6 @@ from ADSRootCauseAnalysis.RCHandler import RCHandler
 def main(cfg: DictConfig):
     handler = RCHandler(cfg)
     stats = handler.collect_root_cause()
-    print(stats)
 
 if __name__ == "__main__":
     main()

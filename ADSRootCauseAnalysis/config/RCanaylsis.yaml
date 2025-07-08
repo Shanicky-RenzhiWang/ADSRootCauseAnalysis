@@ -1,5 +1,6 @@
 log_dir: ???
 effect_time_window: 10
+display_results: true
 module_setting:
   perception:
     perc_score_threshold: 0.5

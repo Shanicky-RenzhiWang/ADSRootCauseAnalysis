@@ -20,7 +20,7 @@ Install the requirements
 
 Once the installation completed, the project is already usable.
 
-The details for running can be found in the **How to Run** label. 
+The details for running can be found in the [How to Run](HowTo.md). 
 
 We provide examples for running, download it by
 
