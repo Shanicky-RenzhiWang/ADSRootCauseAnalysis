@@ -28,6 +28,6 @@ We provide examples for running, download it by
 
 Then execute
 
-    python main.py log_dir=examples/example_collision
+    python main.py log_dir=examples/example_perception
 
 to run the first example.
