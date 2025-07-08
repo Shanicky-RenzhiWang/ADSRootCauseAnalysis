@@ -27,7 +27,7 @@ The metadata is the basic information of the running logs as
 ADS Root Cause Analysis is to analyze the running logs of ADS, thus the following logs are needed.
 Each piece of data is in JSON format and should be placed in the corresponding folder. The file name should follow the pattern `xxx-ttt.json`, where `xxx` is the data name and `ttt` is the timestamp in milliseconds.
 
-### Pose
+### Pose Data
 
 The Pose data records the ego car's operating state at each moment, collected from either the simulator or the real world.
 
